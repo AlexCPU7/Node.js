@@ -44,7 +44,7 @@ volvo.emit('speed', '180 km');
 */
 
 /* #чтение файла */
-var fs = require('fs');
+//var fs = require('fs');
 
 //var file = fs.readFileSync('text.txt', 'utf8');                               //вывод текста в файле
 
@@ -76,3 +76,15 @@ console.log('test');*/
 /*fs.unlink('./new-dir/new_file.txt', function(){
   fs.rmdir('new-dir', function(){});
 });*/
+
+/*var myReadShort = fs.createReadStream(__dirname + '/lot_text.txt', 'utf8');     //получает чусочки данных(потоки)
+var myWriteShort = fs.createWriteStream(__dirname + '/new_lot_text.txt');*/
+
+/*myReadShort.on('data', function(chunk){
+  console.log('Новые данные полученны: \n' + chunk);
+  myWriteShort.write(chunk)
+});*/
+//аналог pipe, будет то же самое
+//myReadShort.pipe(myWriteShort);
+
+//JSON.stringify(arr);                                                            //перевод массива в json

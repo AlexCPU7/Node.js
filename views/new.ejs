@@ -4,10 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale-1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Node.js</title>
+  <title>Новость №<%= newId %></title>
 </head>
 <body>
-  <h1>Node.js</h1>
-  <p>Подзаголовок</p>
+  <% include layouts/menu.ejs %>
+  <h1>Новость №<%= newId %></h1>
+  <p>Подзаголовок новости "<%= title %></"</p>
 </body>
 </html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <% include layouts/head.ejs %>
+</head>
+<body>
+<% include layouts/navbar.ejs %>
+<div class="container-fluid">
+    <div class="row">
+        <% include layouts/sidebar.ejs %>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+            <!-- content -->
+            <h1>Отправка формы</h1>
+            <form method="post" action="/chat">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                    <textarea name="descr" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm identity</button>
+            </form>
+
+        </main>
+    </div>
+</div>
+<% include layouts/footer.ejs %>
+</body>
+</html>

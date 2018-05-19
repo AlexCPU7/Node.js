@@ -1,0 +1,17 @@
+.my-sidebar{
+  position: unset;
+  padding: 0;
+}
+
+.btn-entrance{
+  color: #fff;
+}
+
+.btn-entrance:hover{
+  color: #fff;
+}
+
+.form-entrance-checkbox{
+  margin: 20px 0 15px 2px;
+}
+

@@ -1,22 +1,18 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <% include layouts/head.ejs %>
+<title>Custom Pages Example</title>
 </head>
+
 <body>
-<% include layouts/navbar.ejs %>
-<div class="container-fluid">
-  <div class="row">
-    <% include layouts/sidebar.ejs %>
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+<h1>My Site</h1>
+<h2>Pages Example</h2>
 
-      <!-- content -->
-      <h1>index</h1>
-      <p><%= date %></p>
+<ul>
+<li>visit <a href="/500">500</a></li>
+<li>visit <a href="/404">404</a></li>
+<li>visit <a href="/403">403</a></li>
+</ul>
 
-    </main>
-  </div>
-</div>
-<% include layouts/footer.ejs %>
 </body>
 </html>

@@ -15,3 +15,14 @@
   margin: 20px 0 15px 2px;
 }
 
+.btn-login{
+  border: 0;
+  background: #fff;
+  color: #007bff;
+  padding: 0;
+  cursor: pointer;
+}
+
+.modal-text-registration{
+  padding: 10px 0 0;
+}

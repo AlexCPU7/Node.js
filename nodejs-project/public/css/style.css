@@ -26,3 +26,7 @@
 .modal-text-registration{
   padding: 10px 0 0;
 }
+
+.custom-sidebar{
+  min-width: 200px;
+}

@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-var logger = require('morgan');
-var silent = process.env.NODE_ENV === 'test';
+const logger = require('morgan');
+const silent = process.env.NODE_ENV === 'test';
 
 const app = express();
-var db;
+const db1 = require('./utils/DataBaseUtils');
+db1.setUpConnection();
 
 app.set('view engine', 'ejs');
 app.use('/public', express.static('public'));
@@ -39,6 +40,18 @@ app.get('/react', (req, res) => {
     res.render('react');
 });
 
+app.get('/notes', (req, res) => {
+    db1.listNotes().then(data => res.send(data));
+});
+
+app.post('/notes', (req, res) => {
+    db1.createNote(req.body).then(data => res.send(data));
+});
+
+app.delete('/notes/:id', (req, res) => {
+    db1.deleteNote(req.param.id).then(data => res.send(data));
+});
+
 app.get('/new/:id',(req, res) => {
     console.log(req.query);
     res.render('new', {
@@ -63,9 +76,9 @@ app.post('/forms', (req, res) => {
 
     console.log(req.body);
 
-    var collection = db.collection('form');
+    const collection = db.collection('form');
 
-    var form = {
+    const form = {
         'email' : req.body.email,
         'descr' : req.body.descr
     };
@@ -97,7 +110,7 @@ app.get('/404', function(req, res, next){
 
 app.get('/403', function(req, res, next){
     // trigger a 403 error
-    var err = new Error('not allowed!');
+    const err = new Error('not allowed!');
     err.status = 403;
     next(err);
 });
@@ -131,7 +144,11 @@ app.use(function(err, req, res, next){
     res.render('500', { error: err });
 });
 
-MongoClient.connect('mongodb://127.0.0.1:27017/testdb', (err, db) => {
+app.listen(1488, '127.0.0.1', function(){
+    console.log('Сервер: 127.0.0.1:1488 запущен...');
+});
+
+/*MongoClient.connect('mongodb://127.0.0.1:27017/testdb', (err, db) => {
     if (err){
         console.log('Произошла ошибка подключения к MongoDB:');
         return console.log(err);
@@ -143,4 +160,4 @@ MongoClient.connect('mongodb://127.0.0.1:27017/testdb', (err, db) => {
         });
         db.close();
     }
-});
+});*/

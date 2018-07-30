@@ -1,18 +1,21 @@
-var webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
     entry: "./client/main.js",
     output: {
-        path: __dirname + '/public/build/',
+        path: path.resolve(__dirname, './public/build'),
         publicPath: "build/",
         filename: "bundle.js"
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
-                loader: "babel",
-                exclude: [/node_modules/, /public/]
+                loader: "babel-loader",
+                exclude: [/node_modules/, /public/],
+                options: {
+                    presets: ['es2015', 'react']
+                }
             },
             {
                 test: /\.css$/,
@@ -51,4 +54,4 @@ module.exports = {
             }
         ]
     }
-}
+};

@@ -4,16 +4,19 @@ import React from 'react';
 import NoteEditor from './NoteEditor.js';
 import NotesGrid from './NotesGrid.js';
 
-class MyComponent extends React.Component {
+class App extends React.Component {
+    handleNoteAdd(data){
+        console.log(data);
+    };
     render() {
         return(
             <div className={'app'}>
                 <h1>React</h1>
-                <NoteEditor />
+                <NoteEditor onNoteAdd={this.handleNoteAdd} />
                 <NotesGrid/>
             </div>
         );
     }
 }
 
-export default MyComponent;
+export default App;

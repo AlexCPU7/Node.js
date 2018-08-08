@@ -1,26 +1,28 @@
 import React from 'react';
 import createReactClass from 'create-react-class';
 
-const NoteEditor = createReactClass({
-    getInitialState() {
-        return {
+export default class NoteEditor extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
             title: '',
             text: '',
             color: '#FFFFFF'
         };
-    },
+    }
 
     handleTextChange(event) {
-        this.setState({ text: event.target.value });
-    },
+        this.state.text = event.target.value;
+    };
 
     handleTitleChange(event) {
-        this.setState({ title: event.target.value });
-    },
+        this.state.title = event.target.value;
+    };
 
     handleColorChange(color) {
-        this.setState({ color });
-    },
+        this.state.color = color;
+    };
 
     handleNoteAdd() {
         const newNote = {
@@ -30,8 +32,10 @@ const NoteEditor = createReactClass({
         };
 
         this.props.onNoteAdd(newNote);
-        this.setState({ text: '', title: '', color: '#FFFFFF' });
-    },
+        this.state.text = '';
+        this.state.title = '';
+        this.state.color = '#FFFFFF';
+    };
 
     render() {
         return (
@@ -51,6 +55,10 @@ const NoteEditor = createReactClass({
                     onChange={this.handleTextChange}
                 />
                 <div className='NoteEditor__footer'>
+                    <ColorPicker
+                        value={this.state.color}
+                        onChange={this.handleColorChange}
+                    />
                     <button
                         className='NoteEditor__button'
                         disabled={!this.state.text}
@@ -62,6 +70,4 @@ const NoteEditor = createReactClass({
             </div>
         );
     }
-});
-
-export default NoteEditor;
+}

@@ -16,9 +16,6 @@ function getStateFromFlux() {
 }
 
 class App extends React.Component {
-    getInitialState() {
-        return getStateFromFlux();
-    }
 
     componentWillMount() {
         NotesActions.loadNotes();
@@ -50,7 +47,7 @@ class App extends React.Component {
         );
     }
 
-    _onChange() {
+    _onChange = () => {
         this.setState(getStateFromFlux());
     }
 }

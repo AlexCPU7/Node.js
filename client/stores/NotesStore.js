@@ -10,8 +10,6 @@ let _loadingError = null;
 let _isLoading = true;
 
 function formatNote(note) {
-    console.log(note);
-
     return {
         id: note._id,
         title: note.title,

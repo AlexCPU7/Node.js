@@ -13,28 +13,20 @@ class NoteEditor extends React.Component{
             color: '#FFFFFF'
         };
     }
-    /*getInitialState() {
-        return {
-            title: '',
-            text: '',
-            color: '#FFFFFF'
-        };
-    }*/
 
     handleTextChange = event => {
-        //console.log(this.state);
         this.setState({ text: event.target.value });
-    }
+    };
 
-    handleTitleChange(event) {
-        this.state.title = event.target.value;
-    }
+    handleTitleChange = event => {
+        this.setState({ title: event.target.value });
+    };
 
-    handleColorChange(color) {
-        this.state.color = color;
-    }
+    handleColorChange = color => {
+        this.setState({ color: color });
+    };
 
-    handleNoteAdd() {
+    handleNoteAdd = () => {
         const newNote = {
             title: this.state.title,
             text: this.state.text,
@@ -42,10 +34,8 @@ class NoteEditor extends React.Component{
         };
 
         this.props.onNoteAdd(newNote);
-        this.state.text = '';
-        this.state.title = '';
-        this.state.color = '#FFFFFF';
-    }
+        this.setState({ text: '', title: '', color: '#FFFFFF' });
+    };
 
     render() {
         return (
